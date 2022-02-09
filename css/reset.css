@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+body{font-family: 'NovaSquare'; font-size: 15px; color: #333; -ms-overflow-style:none;}
+body::-webkit-scrollbar{display:none;}
+ul li{list-style: none;}
+a{display: block; color: #333; text-decoration: none; border: 0; outline: 0;}
+img{border: 0; outline: 0;}
+
+@font-face{ /* big title */
+    font-family: 'Audiowide';
+    src: url(../font/Audiowide.eot);
+    src: url(../font/Audiowide.woff) format('woff');
+}
+@font-face{ /* index-title */
+    font-family: 'FasterOne';
+    src: url(../font/FasterOne.eot);
+    src: url(../font/FasterOne.woff) format('woff');
+}
+@font-face{ /* body */
+    font-family: 'NovaSquare';
+    src: url(../font/NovaSquare.eot);
+    src: url(../font/NovaSquare.woff) format('woff');
+}
+@font-face{
+    font-family: 'Notable';
+    src: url(../font/Notable.eot);
+    src: url(../font/Notable.woff) format('woff');
+}

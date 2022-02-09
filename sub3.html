@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOARD-sub3</title>
+    <link rel="shortcut icon" href="imgs/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+    <script src="plugin/jquery.isotope.js"></script>
+    <script src="script/script.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="logo">
+                <a href="index.html"><img src="imgs/logo.png" alt="로고"></a>
+            </div>
+            <div class="hamburger">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
+            <ul class="main-menu">
+                <li><a href="index.html">home</a></li>
+                <li><a href="sub1.html">gallery</a></li>
+                <li><a href="sub2.html">type</a></li>
+                <li class="main-menu_active"><a href="sub3.html">fantasy</a></li>
+            </ul>
+        </header>
+
+        <section>
+            <div class="sub3-wrap">
+                <h2>Fantasy of Board</h2>
+
+                <div class="sub3-slide">
+                    <div class="slide-first">
+                        <div class="layer layer-displayed" data-scene="1">
+                            <div class="layer-img-wrap">
+                                <video preload autoplay muted loop>
+                                    <source src="video/sub3-v01.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                        <div class="layer" data-scene="2">
+                            <div class="layer-img-wrap">
+                                <video preload autoplay muted loop>
+                                    <source src="video/sub3-v02.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                        <div class="layer" data-scene="3">
+                            <div class="layer-img-wrap">
+                                <video preload autoplay muted loop>
+                                    <source src="video/sub3-v03.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                        <div class="slide-text">
+                            <div class="slide-text-layer">
+                                <span class="layer layer-displayed" data-scene="1">surfing</span>
+                                <span class="layer" data-scene="2">sk8er</span>
+                                <span class="layer" data-scene="3">snow</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide-second">
+                        <div class="layer layer-displayed" data-scene="1">
+                            <div class="layer-img-wrap"></div>
+                        </div>
+                        <div class="layer" data-scene="2">
+                            <div class="layer-img-wrap"></div>
+                        </div>
+                        <div class="layer" data-scene="3">
+                            <div class="layer-img-wrap"></div>
+                        </div>
+                    </div>
+
+                    <div class="slide-third">
+                        <div class="layer-wrap">
+                            <div class="layer layer-displayed" data-scene="1">
+                                <span>Tell the teacher, We're surfin'</span>
+                                <span>The Beach Boys</span>
+                            </div>
+                            <div class="layer" data-scene="2">
+                                <span>Mister Son</span>
+                                <span>Fly Superboard</span>
+                            </div>
+                            <div class="layer" data-scene="3">
+                                <span>Drill / Pumping</span>
+                                <span>Halfpipe</span>
+                            </div>
+                        </div>
+                        <button onclick="switchLayer(); return true;">NEXT BOARD >></button>
+                    </div>
+
+                    <div class="slide-fourth">
+                        <div class="slide-container">
+                            <div class="layer layer-displayed" data-scene="1">
+                                <div class="layer-img-wrap"></div>
+                            </div>
+                            <div class="layer" data-scene="2">
+                                <div class="layer-img-wrap"></div>
+                            </div>
+                            <div class="layer" data-scene="3">
+                                <div class="layer-img-wrap"></div>
+                            </div>
+                        </div>
+                        <div class="slide-container">
+                            <div class="layer layer-displayed" data-scene="1">
+                                <div class="layer-img-wrap"></div>
+                            </div>
+                            <div class="layer" data-scene="2">
+                                <div class="layer-img-wrap"></div>
+                            </div>
+                            <div class="layer" data-scene="3">
+                                <div class="layer-img-wrap"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide-pop">
+                        <div class="layer layer-displayed" data-scene="1"></div>
+                        <div class="layer" data-scene="2"></div>
+                        <div class="layer" data-scene="3"></div>
+                    </div>
+
+                    <div class="line"></div>
+                </div>
+            </div>
+        </section>
+    </div> <!-- wrap.end -->
+</div>
+
+<script>
+    const sub3_slide = document.querySelector('.sub3-slide');
+
+    let sliderIndex = 1;
+    const layers = [...document.querySelectorAll('.layer')];
+
+    function switchLayer(step = 1) {
+        const nextSlide = (sliderIndex + step) % 3 === 0 ? 3 : (sliderIndex + step) % 3;
+        for(let i of layers) {
+            i.classList.remove('layer-displayed');
+            i.classList.remove('layer-displayed-exit');
+            if(i.dataset.scene == nextSlide) {
+                i.classList.add('layer-displayed');
+            }
+            if(i.dataset.scene == sliderIndex) {
+                i.classList.add('layer-displayed-exit');
+            }
+        }
+        sliderIndex = nextSlide;
+    }
+</script>
+</body>
+</html>
